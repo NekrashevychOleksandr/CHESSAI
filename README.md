@@ -5,6 +5,8 @@ ANNCA is an experimental chess agent exploring neural network-based decision mak
 
 This project focuses on early-stage experimentation with machine learning approaches to chess, combined with automation and web interaction tools.
 
+The system was able to play complete games at a low intermediate level (~500 Elo), with stronger performance in early-game positions and progressively weaker performance in longer, more complex mid-to-late game states.
+
 ---
 
 ## Features
@@ -12,7 +14,7 @@ This project focuses on early-stage experimentation with machine learning approa
 - Neural network-based move evaluation (Keras)
 - Training pipeline using historical chess game data (PGN format)
 - Automated interaction with online chess platforms
-- Web automation and scraping capabilities
+- Web automation and scraping via Selenium
 - Simple GUI interface for control and monitoring
 
 ---
@@ -24,7 +26,7 @@ This project focuses on early-stage experimentation with machine learning approa
 - Tkinter (GUI)
 - python-chess (PGN parsing and game handling)
 - PyAutoGUI (UI automation)
-- Selenium (web interaction and scraping)
+- Selenium (web interaction and data collection)
 
 ---
 
@@ -33,7 +35,7 @@ This project focuses on early-stage experimentation with machine learning approa
 - `ANNCA.py` — Main execution file  
 - `requirements.txt` — Dependency list  
 - Training modules — Neural network training and data processing components  
-- Automation layer — Handles interaction with chess websites  
+- Automation layer — Handles interaction with chess websites and data scraping  
 
 ---
 
@@ -55,16 +57,6 @@ python ANNCA.py
 
 ---
 
-## Performance Characteristics
-
-The agent performs relatively well in early-game positions but degrades in performance as games progress, with an estimated overall strength of ~500 Elo in practical conditions.
-
-This behavior is primarily due to cumulative errors in the perception and state reconstruction pipeline over longer game sequences. As the game progresses, small inaccuracies in board state tracking can compound, leading to reduced decision quality.
-
-The system prioritises full vision-based autonomy (screen perception → state → action execution) rather than direct engine-state coupling, which introduces additional long-term drift.
-
----
-
 ## Status
 
 Experimental / discontinued research prototype.
@@ -77,6 +69,9 @@ This project was an early attempt at building a neural network-based chess agent
 
 ANNCA was primarily a learning project exploring:
 
-- neural network training for board evaluation  
-- automated interaction with online chess environments  
-- integration of machine learning with UI automation systems
+- Neural network training for board evaluation  
+- Pattern learning limitations in sequential decision problems like chess  
+- Automated interaction with online chess environments  
+- Integration of machine learning with web automation systems  
+
+A key observation from this project was that the model struggled with long-horizon planning in complex positions, which led to weaker performance in later stages of games compared to the opening phase.
