@@ -55,6 +55,16 @@ python ANNCA.py
 
 ---
 
+## Performance Characteristics
+
+The agent performs relatively well in early-game positions but degrades in performance as games progress, with an estimated overall strength of ~500 Elo in practical conditions.
+
+This behavior is primarily due to cumulative errors in the perception and state reconstruction pipeline over longer game sequences. As the game progresses, small inaccuracies in board state tracking can compound, leading to reduced decision quality.
+
+The system prioritises full vision-based autonomy (screen perception → state → action execution) rather than direct engine-state coupling, which introduces additional long-term drift.
+
+---
+
 ## Status
 
 Experimental / discontinued research prototype.
